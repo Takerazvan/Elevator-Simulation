@@ -2,6 +2,7 @@
     import com.codecool.elevator.Direction;
 
     import javax.swing.*;
+    import javax.swing.border.Border;
     import java.awt.*;
     import java.awt.event.ActionEvent;
     import java.awt.event.ActionListener;
@@ -19,7 +20,15 @@
         private JLabel currentFloorLabel;
 
         private JLabel requestsLabel;
-
+        // Define button properties
+        private final int BUTTON_WIDTH = 60;
+        private final int BUTTON_HEIGHT = 60;
+        private final int BUTTON_ARC_SIZE = 20;
+        private final Color BUTTON_COLOR = Color.BLACK;
+        private final Color BUTTON_HIGHLIGHT_COLOR = Color.BLACK;
+        private final Font BUTTON_FONT = new Font("Rockwell", Font.BOLD, 28);
+        private final Border BUTTON_BORDER = BorderFactory.createLineBorder(Color.GREEN, 4);
+        private final Border BUTTON_ROUNDED_BORDER = BorderFactory.createLineBorder(Color.GREEN, 4, true);
 
         public ElevatorUI(int numFloors) {
             // Create elevator
@@ -43,7 +52,7 @@
             // Add floor buttons to control panel
             JPanel floorButtonPanel = new JPanel(new GridLayout(1, numFloors));
             for (int i = numFloors - 1; i >= 0; i--) {
-                floorButtons[i] = new JButton(String.valueOf(i));
+                floorButtons[i] = createButton(String.valueOf(i));
                 floorButtons[i].addActionListener(new FloorButtonActionListener(i));
                 floorButtonPanel.add(floorButtons[i]);
             }
@@ -52,7 +61,7 @@
             // Add elevator buttons to control panel
             JPanel elevatorButtonPanel = new JPanel(new GridLayout(1, numFloors));
             for (int i = numFloors - 1; i >= 0; i--) {
-                elevatorButtons[i] = new JButton(String.valueOf(i));
+                elevatorButtons[i] = createButton(String.valueOf(i));
                 elevatorButtons[i].addActionListener(new ElevatorButtonActionListener(i));
                 elevatorButtonPanel.add(elevatorButtons[i]);
             }
@@ -72,6 +81,34 @@
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setVisible(true);
         }
+
+
+        // Helper method to create a rounded button with metallic appearance
+        private JButton createButton(String label) {
+            JButton button = new JButton(label);
+            button.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
+            button.setBackground(BUTTON_COLOR);
+            button.setFont(BUTTON_FONT);
+            button.setBorder(BorderFactory.createCompoundBorder(BUTTON_BORDER, BUTTON_ROUNDED_BORDER));
+            button.setOpaque(true);
+            button.setContentAreaFilled(true);
+            button.setFocusPainted(true);
+            button.setForeground(Color.WHITE);
+            button.setBackground(Color.BLACK);
+
+            // Set button rollover effect
+            button.getModel().addChangeListener(evt -> {
+                ButtonModel model = (ButtonModel) evt.getSource();
+                if (model.isRollover()) {
+                    button.setBackground(BUTTON_HIGHLIGHT_COLOR);
+                } else {
+                    button.setBackground(BUTTON_COLOR);
+                }
+            });
+
+            return button;
+        }
+
 
         private class FloorButtonActionListener implements ActionListener {
             private final int floor;
@@ -116,6 +153,7 @@
         }
         public static void main(String[] args) throws InterruptedException {
             ElevatorUI elevatorUI = new ElevatorUI(5);
+
     // Load the image from the file
             ImageIcon icon = new ImageIcon("C:\\Users\\Asus\\Desktop\\GREENARROW.png");
             ImageIcon imageIcon= new ImageIcon("C:\\Users\\Asus\\Desktop\\GREEN2.png");

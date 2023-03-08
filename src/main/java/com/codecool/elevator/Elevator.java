@@ -57,8 +57,8 @@ public class Elevator implements Observer {
             long currentTime = System.currentTimeMillis();
             long timeSinceLastRequest = currentTime - lastRequestTime;
             direction=Direction.STATIONARY;
-            if (timeSinceLastRequest >= 5000 && currentFloor > 0) {
-                System.out.printf("Elevator %d has no more requests for 10 seconds. Returning to ground floor.%n", id);
+            if (timeSinceLastRequest >= 18000 && currentFloor > 0) {
+                System.out.printf("Elevator %d has no more requests for 20 seconds. Returning to ground floor.%n", id);
 
                 addRequest(0);
 
