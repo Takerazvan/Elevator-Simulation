@@ -59,9 +59,7 @@ public class Elevator implements Observer {
         return Collections.unmodifiableList(requests);
     }
 
-    public boolean hasRequests() {
-        return !requests.isEmpty();
-    }
+
 
     public void addRequest(int floor) {
         if (floor >= 0 && floor < maxFloors && !requests.contains(floor)) {
@@ -174,7 +172,12 @@ public class Elevator implements Observer {
             }
         } else if (arg instanceof InsideRequest) {
             InsideRequest insideRequest = (InsideRequest) arg;
-            addRequest(insideRequest.getFloor());
+            if (insideRequest.getDirection() == Direction.UP && currentFloor < insideRequest.getFloor()) {
+                addRequest(insideRequest.getFloor());
+            } else if (insideRequest.getDirection() == Direction.DOWN && currentFloor > insideRequest.getFloor()) {
+                addRequest(insideRequest.getFloor());
+            }
         }
     }
-}
+    }
+
