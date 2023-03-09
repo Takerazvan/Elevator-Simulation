@@ -32,7 +32,6 @@ public class Elevator implements Observer {
     public boolean addPassenger() {
         if (currentLoading < MAX_LOADING) {
             currentLoading++;
-            return true;
         }
         return false;
     }

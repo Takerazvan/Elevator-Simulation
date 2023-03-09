@@ -37,7 +37,7 @@
 
             // Create UI components
             frame = new JFrame("Elevator");
-            loadingLabel = new JLabel("LOADING ELEVATOR...", SwingConstants.CENTER);
+            loadingLabel = new JLabel("Loading Elevator...", SwingConstants.CENTER);
             loadingLabel.setFont(new Font("Roboto Mono", Font.BOLD, 24));
             loadingLabel.setForeground(Color.GREEN);
 
@@ -143,11 +143,7 @@
                 } else {
                     logTextArea.append("Elevator is already on floor " + floor + ".\n");
                 }
-                if (elevator.addPassenger()) {
-                    logTextArea.append("Added passenger to elevator.\n");
-                } else {
-                    logTextArea.append("Elevator is full. Passenger could not enter.\n");
-                }
+
             }
         }
 
@@ -169,8 +165,7 @@
                 } else {
                     logTextArea.append("Elevator is already on floor " + floor + ".\n");
                 }
-                elevator.removePassenger();
-                logTextArea.append("Removed passenger from elevator.\n");
+
             }
         }
         public static void main(String[] args) throws InterruptedException {
@@ -202,7 +197,8 @@
                 elevatorUI.currentFloorLabel.setText("Current floor: " + elevatorUI.elevator.getCurrentFloor());
                 elevatorUI.directionLabel.setText("Direction: " + elevatorUI.elevator.getDirection());
                 elevatorUI.requestsLabel.setText("Requests: " + elevatorUI.elevator.getRequests());
-                elevatorUI.loadingLabel.setText("Passengers: " + elevatorUI.elevator.getCurrentLoading() );
+                elevatorUI.loadingLabel.setText("");
+
             }
             }
 
