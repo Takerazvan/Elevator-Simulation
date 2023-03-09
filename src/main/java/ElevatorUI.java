@@ -20,6 +20,7 @@
         private JLabel currentFloorLabel;
 
         private JLabel requestsLabel;
+        private JLabel loadingLabel;
         // Define button properties
         private final int BUTTON_WIDTH = 60;
         private final int BUTTON_HEIGHT = 60;
@@ -36,6 +37,10 @@
 
             // Create UI components
             frame = new JFrame("Elevator");
+            loadingLabel = new JLabel("LOADING ELEVATOR...", SwingConstants.CENTER);
+            loadingLabel.setFont(new Font("Roboto Mono", Font.BOLD, 24));
+            loadingLabel.setForeground(Color.GREEN);
+
             controlPanel = new JPanel(new GridLayout(2, 1));
             floorButtons = new JButton[numFloors];
             elevatorButtons = new JButton[numFloors];
@@ -57,7 +62,7 @@
             statusPanel.add(directionLabel);
             statusPanel.add(requestsLabel);
             controlPanel.add(statusPanel);
-
+            statusPanel.add(loadingLabel);
 // Add floor buttons to control panel
             JPanel floorButtonPanel = new JPanel(new GridLayout(1, numFloors));
             for (int i = numFloors - 1; i >= 0; i--) {
@@ -138,6 +143,11 @@
                 } else {
                     logTextArea.append("Elevator is already on floor " + floor + ".\n");
                 }
+                if (elevator.addPassenger()) {
+                    logTextArea.append("Added passenger to elevator.\n");
+                } else {
+                    logTextArea.append("Elevator is full. Passenger could not enter.\n");
+                }
             }
         }
 
@@ -159,6 +169,8 @@
                 } else {
                     logTextArea.append("Elevator is already on floor " + floor + ".\n");
                 }
+                elevator.removePassenger();
+                logTextArea.append("Removed passenger from elevator.\n");
             }
         }
         public static void main(String[] args) throws InterruptedException {
@@ -190,6 +202,8 @@
                 elevatorUI.currentFloorLabel.setText("Current floor: " + elevatorUI.elevator.getCurrentFloor());
                 elevatorUI.directionLabel.setText("Direction: " + elevatorUI.elevator.getDirection());
                 elevatorUI.requestsLabel.setText("Requests: " + elevatorUI.elevator.getRequests());
+                elevatorUI.loadingLabel.setText("Passengers: " + elevatorUI.elevator.getCurrentLoading() );
             }
             }
+
         }

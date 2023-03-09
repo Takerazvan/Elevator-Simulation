@@ -11,6 +11,8 @@ public class Elevator implements Observer {
     private Direction direction;
     private List<Integer> requests;
     private final int maxFloors;
+    private int currentLoading;
+    private static final int MAX_LOADING = 10; // Maximum number of passengers that the elevator can hold
 
     public Elevator(int id, int maxFloors) {
         this.id = id;
@@ -25,6 +27,25 @@ public class Elevator implements Observer {
 
     public int getId() {
         return id;
+    }
+
+    public boolean addPassenger() {
+        if (currentLoading < MAX_LOADING) {
+            currentLoading++;
+            return true;
+        }
+        return false;
+    }
+
+
+    public void removePassenger() {
+        if (currentLoading > 0) {
+            currentLoading--;
+        }
+    }
+
+    public int getCurrentLoading() {
+        return currentLoading;
     }
 
     public int getCurrentFloor() {
