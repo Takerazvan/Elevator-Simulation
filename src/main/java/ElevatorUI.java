@@ -42,14 +42,23 @@
             logTextArea = new JTextArea();
             statusPanel = new JPanel(new GridLayout(3, 1));
             currentFloorLabel = new JLabel("", SwingConstants.CENTER);
+            currentFloorLabel.setFont(new Font("Roboto Mono", Font.BOLD, 24));
+            currentFloorLabel.setForeground(Color.GREEN);
             directionLabel = new JLabel("", SwingConstants.CENTER);
+            directionLabel.setFont(new Font("Roboto Mono", Font.BOLD, 24));
+            directionLabel.setForeground(Color.GREEN);
             requestsLabel = new JLabel("", SwingConstants.CENTER);
+            requestsLabel.setFont(new Font("Roboto Mono", Font.BOLD, 24));
+            requestsLabel.setForeground(Color.GREEN);
+            statusPanel.setBackground(Color.BLACK);
+            controlPanel.setBackground(Color.BLACK);
+            statusPanel.setBorder(BorderFactory.createEmptyBorder(50, 100, 50, 100));
             statusPanel.add(currentFloorLabel);
             statusPanel.add(directionLabel);
             statusPanel.add(requestsLabel);
             controlPanel.add(statusPanel);
 
-            // Add floor buttons to control panel
+// Add floor buttons to control panel
             JPanel floorButtonPanel = new JPanel(new GridLayout(1, numFloors));
             for (int i = numFloors - 1; i >= 0; i--) {
                 floorButtons[i] = createButton(String.valueOf(i));
@@ -58,7 +67,7 @@
             }
             controlPanel.add(floorButtonPanel);
 
-            // Add elevator buttons to control panel
+// Add elevator buttons to control panel
             JPanel elevatorButtonPanel = new JPanel(new GridLayout(1, numFloors));
             for (int i = numFloors - 1; i >= 0; i--) {
                 elevatorButtons[i] = createButton(String.valueOf(i));
@@ -67,19 +76,20 @@
             }
             controlPanel.add(elevatorButtonPanel);
 
-            // Add direction label to control panel
+// Add direction label to control panel
             controlPanel.add(directionLabel);
 
-            // Add log text area to control panel
+// Add log text area to control panel
             controlPanel.add(new JScrollPane(logTextArea));
 
-            // Add control panel to frame
+// Add control panel to frame
             frame.add(controlPanel);
 
-            // Set frame properties
-            frame.setSize(400, 600);
+// Set frame properties
+            frame.setSize(800, 1000);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setVisible(true);
+
         }
 
 
@@ -155,8 +165,8 @@
             ElevatorUI elevatorUI = new ElevatorUI(5);
 
     // Load the image from the file
-            ImageIcon icon = new ImageIcon("C:\\Users\\Asus\\Desktop\\GREENARROW.png");
-            ImageIcon imageIcon= new ImageIcon("C:\\Users\\Asus\\Desktop\\GREEN2.png");
+            ImageIcon icon = new ImageIcon("C:\\CodeCool\\elevator-calling-java-Takerazvan\\src\\main\\java\\com\\codecool\\elevator\\Screenshot (56).png");
+            ImageIcon imageIcon= new ImageIcon("C:\\CodeCool\\elevator-calling-java-Takerazvan\\src\\main\\java\\com\\codecool\\elevator\\DOWN_ARROW.png");
 
 
             // Start elevator
