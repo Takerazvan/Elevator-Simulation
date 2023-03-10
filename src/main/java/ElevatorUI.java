@@ -28,8 +28,11 @@
         private final Color BUTTON_COLOR = Color.BLACK;
         private final Color BUTTON_HIGHLIGHT_COLOR = Color.BLACK;
         private final Font BUTTON_FONT = new Font("Rockwell", Font.BOLD, 28);
-        private final Border BUTTON_BORDER = BorderFactory.createLineBorder(Color.GREEN, 4);
-        private final Border BUTTON_ROUNDED_BORDER = BorderFactory.createLineBorder(Color.GREEN, 4, true);
+        private final Border BUTTON_BORDER = BorderFactory.createEmptyBorder();
+        private final Border BUTTON_ROUNDED_BORDER = BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(0, 0, 0, 0), 4),
+                BorderFactory.createLineBorder(Color.GREEN, 4)
+        );
 
         public ElevatorUI(int numFloors) {
             // Create elevator
@@ -115,7 +118,8 @@
             button.getModel().addChangeListener(evt -> {
                 ButtonModel model = (ButtonModel) evt.getSource();
                 if (model.isRollover()) {
-                    button.setBackground(BUTTON_HIGHLIGHT_COLOR);
+                    button.setBackground(Color.GREEN);
+
                 } else {
                     button.setBackground(BUTTON_COLOR);
                 }
