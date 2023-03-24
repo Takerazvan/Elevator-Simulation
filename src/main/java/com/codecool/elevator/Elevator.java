@@ -16,7 +16,6 @@ public class Elevator implements Observer {
 
     public Elevator(int id, int maxFloors) {
         this.id = id;
-
         this.currentFloor = 0;
         this.direction = Direction.STATIONARY;
         this.requests = new ArrayList<>();

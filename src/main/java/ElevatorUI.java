@@ -24,9 +24,9 @@
         // Define button properties
         private final int BUTTON_WIDTH = 60;
         private final int BUTTON_HEIGHT = 60;
-        private final int BUTTON_ARC_SIZE = 20;
+
         private final Color BUTTON_COLOR = Color.BLACK;
-        private final Color BUTTON_HIGHLIGHT_COLOR = Color.BLACK;
+
         private final Font BUTTON_FONT = new Font("Rockwell", Font.BOLD, 28);
         private final Border BUTTON_BORDER = BorderFactory.createEmptyBorder();
         private final Border BUTTON_ROUNDED_BORDER = BorderFactory.createCompoundBorder(
@@ -114,7 +114,7 @@
             button.setForeground(Color.WHITE);
             button.setBackground(Color.BLACK);
 
-            // Set button rollover effect
+            // Set button  effect
             button.getModel().addChangeListener(evt -> {
                 ButtonModel model = (ButtonModel) evt.getSource();
                 if (model.isRollover()) {
