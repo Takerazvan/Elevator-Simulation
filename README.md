@@ -1,13 +1,12 @@
 # Elevator Simulation
 
-This project is an elevator simulation implemented in JAVA. It provides a basic framework for simulating the behavior of elevators in a multi-story building. The simulation allows you to observe and analyze the movement and efficiency of the elevators based on different parameters and configurations.
+The Elevator Calling Java project is a Java-based implementation of an elevator control system designed to efficiently handle elevator requests within a building.
 
 ## Features
-
-- Simulates the behavior of multiple resuest coming from diferent floors.
-- Configurable number of floors, elevators, and passenger requests.
-- Supports different scheduling algorithms for elevator dispatching.
-- Provides statistical analysis of elevator performance.
+-Efficient handling of elevator requests
+-Optimized elevator operations for quick and smooth transportation
+-Support for multiple elevators and floors
+-Customizable elevator behavior and configuration
 
 ![@Prozar Logo](https://i.imgur.com/hdPD2VT.png)
 
