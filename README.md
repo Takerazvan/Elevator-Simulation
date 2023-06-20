@@ -9,7 +9,7 @@ This project is an elevator simulation implemented in Python. It provides a basi
 - Supports different scheduling algorithms for elevator dispatching.
 - Provides statistical analysis of elevator performance.
 
-![@Prozar Logo]([https://i.imgur.com/fE0mNWt.png](https://i.imgur.com/hdPD2VT.png))
+![@Prozar Logo](https://i.imgur.com/hdPD2VT.png)
 
 ## Installation
 
