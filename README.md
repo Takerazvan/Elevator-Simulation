@@ -33,6 +33,9 @@ git clone https://github.com/CodecoolGlobal/elevator-calling-java-Takerazvan.git
 
 4. Interact with the system by calling the elevators using the provided methods or interface.
 
+
+![@Prozar Logo](https://i.imgur.com/hdPD2VT.png)
+
 ## Examples
 
 ```java
@@ -68,6 +71,6 @@ Feel free to customize this readme file further based on your project's specific
 
 
 
-![@Prozar Logo](https://i.imgur.com/hdPD2VT.png)
+
 
 
